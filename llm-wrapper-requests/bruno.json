@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "llm-wrapper-requests",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
