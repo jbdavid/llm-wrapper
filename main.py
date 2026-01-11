@@ -1,17 +1,18 @@
 from fastapi import FastAPI
 from app.models_manager import get_model
 from app.ask_types import Question, Analysis
-from pydantic import BaseModel, Field
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langsmith import traceable
 from dotenv import load_dotenv
 
-# Charger les variables d'environnement depuis .env
+# Load env variables from .env
 load_dotenv()
 
 app = FastAPI()
 
 @app.post("/ask")
+@traceable
 async def ask(question: Question):
     # Create a parser for structured output based on the Analysis model
     parser = PydanticOutputParser(pydantic_object=Analysis)

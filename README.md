@@ -7,6 +7,7 @@ This project is a REST API built with FastAPI that analyzes customer questions u
 - **Language** : Python 3.13
 - **Framework** : FastAPI (asynchronous web server)
 - **LLMs** : Integration with LangChain for OpenAI and Google Gemini
+- **Tracing & Debugging** : LangSmith for monitoring LLM calls and chains
 - **Validation** : Pydantic for data models
 - **Dependency Management** : uv (replaces pip and virtualenv)
 - **Environment Variables** : python-dotenv
@@ -42,12 +43,19 @@ OPENAI_API_KEY=your_openai_key_here
 # Google API Key (required if PROVIDER=gemini)
 GOOGLE_API_KEY=your_google_key_here
 
+# LangChain API Key (optional, for tracing with LangSmith)
+LANGCHAIN_API_KEY=your_langchain_key_here
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_PROJECT=your_langsmith_project_key_here
+
 # Provider to use: 'openai' or 'gemini'
 PROVIDER=gemini
 ```
 
 - **OPENAI_API_KEY** : Get it from [platform.openai.com](https://platform.openai.com/api-keys).
 - **GOOGLE_API_KEY** : Get it from [Google AI Studio](https://aistudio.google.com).
+- **LANGCHAIN_API_KEY** : Get it from [LangSmith](https://smith.langchain.com) for tracing LLM calls (optional).
 - **PROVIDER** : Choose `openai` for GPT-4 or `gemini` for Gemini 1.5 Pro.
 
 ## Running the Project
